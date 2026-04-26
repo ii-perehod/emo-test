@@ -1,8 +1,9 @@
 (function () {
   "use strict";
 
-  const { loadState, resetState, recordAnswer } = window.TrainerStore;
+  const { loadState, recordAnswer } = window.TrainerStore;
   const { isAnswerCorrect } = window.AnswerChecker;
+  const { bindResetButton } = window.ResetButton;
 
   const FEEDBACK_DELAY_MS = 700;
 
@@ -51,11 +52,11 @@
 
   function updateSteps(activeIndex) {
     const steps = document.querySelectorAll(".step");
-    steps.forEach((step, i) => {
+    steps.forEach((step, index) => {
       step.classList.remove("step--done", "step--current");
-      if (i < activeIndex) {
+      if (index < activeIndex) {
         step.classList.add("step--done");
-      } else if (i === activeIndex) {
+      } else if (index === activeIndex) {
         step.classList.add("step--current");
       }
     });
@@ -75,22 +76,22 @@
     const form = document.querySelector(".answer-form");
     const input = document.querySelector(".answer-input");
     const submitButton = form.querySelector(".submit-button");
-    let isProcessing = false;
+    let submissionLock = false;
 
     form.addEventListener("submit", (event) => {
       event.preventDefault();
-      if (isProcessing) {
+      if (submissionLock) {
         return;
       }
-      isProcessing = true;
+      submissionLock = true;
 
       const value = input.value.trim();
       const question = getCurrentQuestion();
-      const correct = isAnswerCorrect(value, question.correctAnswer);
+      const match = isAnswerCorrect(value, question.correctAnswer);
 
       submitButton.disabled = true;
       input.disabled = true;
-      if (correct) {
+      if (match) {
         submitButton.classList.add("submit-button--correct");
       }
 
@@ -100,17 +101,9 @@
           window.location.href = "answers.html";
         } else {
           renderCurrentQuestion();
-          isProcessing = false;
+          submissionLock = false;
         }
       }, FEEDBACK_DELAY_MS);
-    });
-  }
-
-  function bindResetButton() {
-    const closeButton = document.querySelector(".close-button");
-    closeButton.addEventListener("click", () => {
-      resetState();
-      window.location.href = "index.html";
     });
   }
 })();

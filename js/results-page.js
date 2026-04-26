@@ -1,9 +1,10 @@
 (function () {
   "use strict";
 
-  const { loadState, resetState } = window.TrainerStore;
+  const { loadState } = window.TrainerStore;
   const { renderHighlightedWord } = window.VowelHighlighter;
   const { isAnswerCorrect } = window.AnswerChecker;
+  const { bindResetButton } = window.ResetButton;
 
   const state = loadState();
 
@@ -14,13 +15,13 @@
     const tbody = document.querySelector(".results tbody");
     tbody.replaceChildren();
 
-    currentState.questions.forEach((question, i) => {
-      if (i >= currentState.answers.length) {
+    currentState.questions.forEach((question, index) => {
+      if (index >= currentState.answers.length) {
         return;
       }
-      const userAnswer = currentState.answers[i];
+      const userAnswer = currentState.answers[index];
       const row = createResultRow({
-        number: i + 1,
+        number: index + 1,
         question: question,
         userAnswer: userAnswer,
         isCorrect: isAnswerCorrect(userAnswer, question.correctAnswer)
@@ -71,19 +72,11 @@
     svg.setAttribute("role", "img");
     svg.setAttribute("aria-label", isCorrect ? "Верно" : "Ошибка");
 
-    const use = document.createElementNS("http://www.w3.org/2000/svg", "use");
-    use.setAttribute("href", isCorrect ? "#icon-check" : "#icon-cross");
+    const useElement = document.createElementNS("http://www.w3.org/2000/svg", "use");
+    useElement.setAttribute("href", isCorrect ? "#icon-check" : "#icon-cross");
 
-    svg.appendChild(use);
+    svg.appendChild(useElement);
     cell.appendChild(svg);
     return cell;
-  }
-
-  function bindResetButton() {
-    const closeButton = document.querySelector(".close-button");
-    closeButton.addEventListener("click", () => {
-      resetState();
-      window.location.href = "index.html";
-    });
   }
 })();

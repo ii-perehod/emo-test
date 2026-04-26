@@ -35,7 +35,7 @@ body {
   min-height: 100vh;
   display: grid;
   place-items: center;
-  padding: 24px;
+  padding: 0;
   background: var(--color-page-bg);
   font-family: var(--font-family);
   color: var(--color-text);
@@ -53,8 +53,8 @@ body {
   container-type: inline-size;
   position: relative;
   width: min(
-    calc(100vw - 48px),
-    calc((100vh - 48px) * var(--frame-w) / var(--frame-h)),
+    100vw,
+    calc(100vh * var(--frame-w) / var(--frame-h)),
     calc(var(--frame-w) * 1px)
   );
   aspect-ratio: var(--frame-w) / var(--frame-h);

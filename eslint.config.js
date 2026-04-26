@@ -24,7 +24,8 @@ export default [
         QUESTIONS: "readonly",
         TrainerStore: "readonly",
         VowelHighlighter: "readonly",
-        AnswerChecker: "readonly"
+        AnswerChecker: "readonly",
+        ResetButton: "readonly"
       }
     },
     rules: {

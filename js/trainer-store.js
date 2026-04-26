@@ -5,9 +5,9 @@
 
   function shuffle(items) {
     const copy = items.slice();
-    for (let i = copy.length - 1; i > 0; i -= 1) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [copy[i], copy[j]] = [copy[j], copy[i]];
+    for (let index = copy.length - 1; index > 0; index -= 1) {
+      const swapIndex = Math.floor(Math.random() * (index + 1));
+      [copy[index], copy[swapIndex]] = [copy[swapIndex], copy[index]];
     }
     return copy;
   }
@@ -28,20 +28,20 @@
   }
 
   function loadState() {
-    const raw = sessionStorage.getItem(STORAGE_KEY);
-    if (raw) {
+    const storedJson = sessionStorage.getItem(STORAGE_KEY);
+    if (storedJson) {
       try {
-        const parsed = JSON.parse(raw);
-        if (isValidState(parsed)) {
-          return parsed;
+        const parsedState = JSON.parse(storedJson);
+        if (isValidState(parsedState)) {
+          return parsedState;
         }
       } catch {
         // повреждённое хранилище — пересоздаём ниже
       }
     }
-    const fresh = createInitialState();
-    saveState(fresh);
-    return fresh;
+    const freshState = createInitialState();
+    saveState(freshState);
+    return freshState;
   }
 
   function saveState(state) {
