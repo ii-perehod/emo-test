@@ -20,6 +20,7 @@ export default [
         Set: "readonly",
         Array: "readonly",
         String: "readonly",
+        Image: "readonly",
         QUESTIONS: "readonly",
         TrainerStore: "readonly",
         VowelHighlighter: "readonly",

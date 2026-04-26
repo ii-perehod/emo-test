@@ -13,13 +13,29 @@
     return;
   }
 
-  const currentQuestion = state.questions[state.currentIndex];
-
-  renderStimulus(currentQuestion);
-  renderPrompt(currentQuestion.correctAnswer);
-  updateSteps(state.currentIndex);
+  preloadImages(state.questions);
+  renderCurrentQuestion();
   bindAnswerForm();
   bindResetButton();
+
+  function preloadImages(questions) {
+    for (const question of questions) {
+      const preloader = new Image();
+      preloader.src = question.image;
+    }
+  }
+
+  function getCurrentQuestion() {
+    return state.questions[state.currentIndex];
+  }
+
+  function renderCurrentQuestion() {
+    const question = getCurrentQuestion();
+    renderStimulus(question);
+    renderPrompt(question.correctAnswer);
+    updateSteps(state.currentIndex);
+    resetForm();
+  }
 
   function renderStimulus(question) {
     const stimulus = document.querySelector(".stimulus");
@@ -45,12 +61,21 @@
     });
   }
 
+  function resetForm() {
+    const input = document.querySelector(".answer-input");
+    const submitButton = document.querySelector(".submit-button");
+    input.value = "";
+    input.disabled = false;
+    submitButton.disabled = false;
+    submitButton.classList.remove("submit-button--correct");
+    input.focus();
+  }
+
   function bindAnswerForm() {
     const form = document.querySelector(".answer-form");
     const input = document.querySelector(".answer-input");
     const submitButton = form.querySelector(".submit-button");
     let isProcessing = false;
-    input.focus();
 
     form.addEventListener("submit", (event) => {
       event.preventDefault();
@@ -60,7 +85,8 @@
       isProcessing = true;
 
       const value = input.value.trim();
-      const correct = isAnswerCorrect(value, currentQuestion.correctAnswer);
+      const question = getCurrentQuestion();
+      const correct = isAnswerCorrect(value, question.correctAnswer);
 
       submitButton.disabled = true;
       input.disabled = true;
@@ -73,7 +99,8 @@
         if (state.currentIndex >= state.questions.length) {
           window.location.href = "answers.html";
         } else {
-          window.location.reload();
+          renderCurrentQuestion();
+          isProcessing = false;
         }
       }, FEEDBACK_DELAY_MS);
     });
