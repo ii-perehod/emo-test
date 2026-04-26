@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ЭМО — Итоги</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400&family=Palanquin+Dark:wght@400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <svg class="sprite" aria-hidden="true">
+    <symbol id="icon-check" viewBox="0 0 71 68">
+      <path d="M29.538 65.452L1.685 26.2666C1.40163 25.8679 1.44822 25.3228 1.79513 24.978L14.4429 12.4072C14.881 11.9718 15.6051 12.0336 15.963 12.5371L29.0503 30.9491C29.4448 31.5042 30.2667 31.5111 30.6705 30.9627L52.0672 1.90715C52.4022 1.4523 53.0471 1.36497 53.491 1.71437L68.4311 13.4752C68.856 13.8097 68.938 14.4212 68.6164 14.8559L31.1569 65.4675C30.7523 66.0141 29.932 66.0062 29.538 65.452Z"/>
+    </symbol>
+    <symbol id="icon-cross" viewBox="0 0 71 72">
+      <path d="M18.9594 36.7533L1.77451 54.8671C1.40145 55.2603 1.40959 55.8792 1.79287 56.2625L14.8787 69.3483C15.2763 69.7459 15.9235 69.7376 16.3108 69.3299L33.9062 50.8084C34.2901 50.4043 34.9305 50.3921 35.3295 50.7814L54.3971 69.384C54.789 69.7663 55.4154 69.7624 55.8026 69.3753L68.897 56.2808C69.2875 55.8903 69.2875 55.2571 68.897 54.8666L50.8023 36.7719C50.4153 36.3849 50.4113 35.7586 50.7934 35.3667L68.9264 16.7688C69.3039 16.3817 69.3052 15.7645 68.9294 15.3757L55.811 1.80501C55.4226 1.40316 54.7801 1.39771 54.3849 1.79292L35.3112 20.8666C34.9207 21.2571 34.2875 21.2571 33.897 20.8666L16.2864 3.25603C15.9057 2.87533 15.292 2.86438 14.8979 3.23125L1.83365 15.3945C1.43036 15.77 1.4068 16.401 1.78097 16.8055L18.968 35.386C19.3258 35.7729 19.3221 36.371 18.9594 36.7533Z"/>
+    </symbol>
+  </svg>
+
+  <main class="trainer">
+    <div class="card card--main">
+      <table class="results">
+        <colgroup>
+          <col class="results__col--num">
+          <col class="results__col--image">
+          <col class="results__col--correct">
+          <col class="results__col--answer">
+          <col class="results__col--mark">
+        </colgroup>
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>К<span class="vowel">А</span>РТ<span class="vowel">И</span>НК<span class="vowel">А</span></th>
+            <th>ПР<span class="vowel">А</span>В<span class="vowel">И</span>ЛЬН<span class="vowel">Ы</span>Й <span class="vowel">О</span>ТВ<span class="vowel">Е</span>Т</th>
+            <th>ТВ<span class="vowel">О</span>Й <span class="vowel">О</span>ТВ<span class="vowel">Е</span>Т</th>
+            <th>Р<span class="vowel">Е</span>З<span class="vowel">У</span>ЛЬТ<span class="vowel">А</span>Т</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td><img class="results__image results__image--lg" src="images/greens.png" alt="Зелень"></td>
+            <td>З<span class="vowel">Е</span>Л<span class="vowel">Е</span>НЬ</td>
+            <td>З<span class="vowel">Е</span>Л<span class="vowel">Е</span>НЬ</td>
+            <td class="results__mark">
+              <svg class="icon" aria-label="Верно" role="img"><use href="#icon-check"/></svg>
+            </td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td><img class="results__image" src="images/ashan.png" alt="Магазин «Ашан»"></td>
+            <td><span class="vowel">А</span>Ш<span class="vowel">А</span>Н</td>
+            <td><span class="vowel">А</span>Ш<span class="vowel">АА</span>Н</td>
+            <td class="results__mark results__mark--wrong">
+              <svg class="icon" aria-label="Ошибка" role="img"><use href="#icon-cross"/></svg>
+            </td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td><img class="results__image" src="images/tyumen.png" alt="Здание администрации Тюмени"></td>
+            <td>Т<span class="vowel">Ю</span>М<span class="vowel">Е</span>НЬ</td>
+            <td>Т<span class="vowel">Ю</span>М<span class="vowel">Е</span>НЬ</td>
+            <td class="results__mark">
+              <svg class="icon" aria-label="Верно" role="img"><use href="#icon-check"/></svg>
+            </td>
+          </tr>
+          <tr>
+            <td>4</td>
+            <td><img class="results__image" src="images/road-roller.png" alt="Дорожный каток"></td>
+            <td>К<span class="vowel">А</span>Т<span class="vowel">О</span>К</td>
+            <td>К<span class="vowel">А</span>Т<span class="vowel">О</span>К</td>
+            <td class="results__mark">
+              <svg class="icon" aria-label="Верно" role="img"><use href="#icon-check"/></svg>
+            </td>
+          </tr>
+          <tr>
+            <td>5</td>
+            <td><img class="results__image" src="images/ice-rink-store.png" alt="Магазин хоккейного инвентаря"></td>
+            <td>К<span class="vowel">А</span>Т<span class="vowel">О</span>К</td>
+            <td>К<span class="vowel">А</span>Т<span class="vowel">О</span>К</td>
+            <td class="results__mark">
+              <svg class="icon" aria-label="Верно" role="img"><use href="#icon-check"/></svg>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <button class="close-button" type="button" aria-label="Начать заново">
+      <svg class="icon" aria-hidden="true"><use href="#icon-cross"/></svg>
+    </button>
+  </main>
+</body>
+</html>

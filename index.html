@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ЭМО — Напечатай слово</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400&family=Palanquin+Dark:wght@400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="trainer">
+    <div class="card card--main"></div>
+    <div class="card card--sidebar"></div>
+
+    <ol class="steps">
+      <li class="step step--1 step--done"><span class="step__digit">1</span></li>
+      <li class="step step--2 step--done"><span class="step__digit">2</span></li>
+      <li class="step step--3 step--current"><span class="step__digit">3</span></li>
+      <li class="step step--4"><span class="step__digit">4</span></li>
+      <li class="step step--5"><span class="step__digit">5</span></li>
+      <li class="step step--6"><span class="step__digit">6</span></li>
+    </ol>
+
+    <img class="stimulus" src="images/tyumen.png" alt="Здание администрации Тюмени">
+
+    <p class="prompt">Напечатай: Тюмень</p>
+
+    <form class="answer-form" action="answers.html" method="get">
+      <label class="visually-hidden" for="answer-input">Ваш ответ</label>
+      <input
+        class="answer-input"
+        id="answer-input"
+        name="answer"
+        type="text"
+        autocomplete="off"
+      >
+      <button class="submit-button" type="submit" aria-label="Проверить ответ">
+        <svg class="icon" viewBox="0 0 73 68" aria-hidden="true">
+          <path d="M30.387 65.515L1.69298 26.2998C1.39782 25.8964 1.44584 25.337 1.80541 24.9898L14.8532 12.392C15.2893 11.9709 15.9968 12.0317 16.3548 12.5209L29.885 31.0122C30.2803 31.5525 31.0845 31.5593 31.4889 31.0258L53.5712 1.89603C53.9058 1.4546 54.5355 1.36929 54.9756 1.70577L70.3849 13.4894C70.8231 13.8245 70.9072 14.451 70.5729 14.8898L31.9895 65.5305C31.5844 66.0622 30.7817 66.0544 30.387 65.515Z"/>
+        </svg>
+      </button>
+    </form>
+
+    <button class="close-button" type="button" aria-label="Начать заново">
+      <svg class="icon" viewBox="0 0 71 72" aria-hidden="true">
+        <path d="M18.9594 36.7533L1.77451 54.8671C1.40145 55.2603 1.40959 55.8792 1.79287 56.2625L14.8787 69.3483C15.2763 69.7459 15.9235 69.7376 16.3108 69.3299L33.9062 50.8084C34.2901 50.4043 34.9305 50.3921 35.3295 50.7814L54.3971 69.384C54.789 69.7663 55.4154 69.7624 55.8026 69.3753L68.897 56.2808C69.2875 55.8903 69.2875 55.2571 68.897 54.8666L50.8023 36.7719C50.4153 36.3849 50.4113 35.7586 50.7934 35.3667L68.9264 16.7688C69.3039 16.3817 69.3052 15.7645 68.9294 15.3757L55.811 1.80501C55.4226 1.40316 54.7801 1.39771 54.3849 1.79292L35.3112 20.8666C34.9207 21.2571 34.2875 21.2571 33.897 20.8666L16.2864 3.25603C15.9057 2.87533 15.292 2.86438 14.8979 3.23125L1.83365 15.3945C1.43036 15.77 1.4068 16.401 1.78097 16.8055L18.968 35.386C19.3258 35.7729 19.3221 36.371 18.9594 36.7533Z"/>
+      </svg>
+    </button>
+  </main>
+</body>
+</html>

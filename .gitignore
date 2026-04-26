@@ -1,0 +1,13 @@
+# IDE / OS
+.vscode/
+.idea/
+.claude/
+.DS_Store
+Thumbs.db
+*.log
+
+# Материалы задания (не для публикации)
+*.pdf
+*.docx
+*.png
+!images/*.png
