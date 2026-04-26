@@ -2,6 +2,9 @@
   "use strict";
 
   const { loadState, resetState, recordAnswer } = window.TrainerStore;
+  const { isAnswerCorrect } = window.AnswerChecker;
+
+  const FEEDBACK_DELAY_MS = 700;
 
   const state = loadState();
 
@@ -45,17 +48,34 @@
   function bindAnswerForm() {
     const form = document.querySelector(".answer-form");
     const input = document.querySelector(".answer-input");
+    const submitButton = form.querySelector(".submit-button");
+    let isProcessing = false;
     input.focus();
 
     form.addEventListener("submit", (event) => {
       event.preventDefault();
-      const value = input.value.trim();
-      recordAnswer(state, value);
-      if (state.currentIndex >= state.questions.length) {
-        window.location.href = "answers.html";
-      } else {
-        window.location.reload();
+      if (isProcessing) {
+        return;
       }
+      isProcessing = true;
+
+      const value = input.value.trim();
+      const correct = isAnswerCorrect(value, currentQuestion.correctAnswer);
+
+      submitButton.disabled = true;
+      input.disabled = true;
+      if (correct) {
+        submitButton.classList.add("submit-button--correct");
+      }
+
+      setTimeout(() => {
+        recordAnswer(state, value);
+        if (state.currentIndex >= state.questions.length) {
+          window.location.href = "answers.html";
+        } else {
+          window.location.reload();
+        }
+      }, FEEDBACK_DELAY_MS);
     });
   }
 

@@ -13,6 +13,7 @@ export default [
         window: "readonly",
         document: "readonly",
         sessionStorage: "readonly",
+        setTimeout: "readonly",
         console: "readonly",
         Math: "readonly",
         JSON: "readonly",
@@ -21,7 +22,8 @@ export default [
         String: "readonly",
         QUESTIONS: "readonly",
         TrainerStore: "readonly",
-        VowelHighlighter: "readonly"
+        VowelHighlighter: "readonly",
+        AnswerChecker: "readonly"
       }
     },
     rules: {

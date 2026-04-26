@@ -3,15 +3,12 @@
 
   const { loadState, resetState } = window.TrainerStore;
   const { renderHighlightedWord } = window.VowelHighlighter;
+  const { isAnswerCorrect } = window.AnswerChecker;
 
   const state = loadState();
 
   renderResultsTable(state);
   bindResetButton();
-
-  function isAnswerCorrect(userAnswer, correctAnswer) {
-    return userAnswer.trim().toUpperCase() === correctAnswer.toUpperCase();
-  }
 
   function renderResultsTable(currentState) {
     const tbody = document.querySelector(".results tbody");

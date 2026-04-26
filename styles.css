@@ -187,6 +187,15 @@ body {
   height: calc(68.5 * var(--u));
   fill: var(--color-check-inactive);
   stroke-width: calc(3 * var(--u));
+  transition: fill 0.15s ease-out;
+}
+
+.submit-button--correct .icon {
+  fill: var(--color-check-active);
+}
+
+.submit-button:disabled {
+  cursor: default;
 }
 
 .close-button {
