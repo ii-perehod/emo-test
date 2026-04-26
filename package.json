@@ -1,0 +1,14 @@
+{
+  "name": "emo-test",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Тренажёр «Напечатай слово» — тестовое задание",
+  "scripts": {
+    "lint": "eslint js/"
+  },
+  "devDependencies": {
+    "@stylistic/eslint-plugin": "^2.10.1",
+    "eslint": "^9.15.0"
+  }
+}
