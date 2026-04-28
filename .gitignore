@@ -15,3 +15,7 @@ package-lock.json
 *.docx
 *.png
 !images/*.png
+
+# Сырые данные из Figma API
+figma-response.json
+extracted-styles.css
